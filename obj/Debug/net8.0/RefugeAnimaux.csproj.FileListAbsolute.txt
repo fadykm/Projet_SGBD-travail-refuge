@@ -17,3 +17,4 @@ C:\Users\fadyk\Downloads\travail2_partie1_fady\travail2_partie1_fady\RefugeAnima
 C:\Users\fadyk\Downloads\travail2_partie1_fady\travail2_partie1_fady\RefugeAnimaux\obj\Debug\net8.0\RefugeAnimaux.pdb
 C:\Users\fadyk\Downloads\travail2_partie1_fady\travail2_partie1_fady\RefugeAnimaux\obj\Debug\net8.0\RefugeAnimaux.genruntimeconfig.cache
 C:\Users\fadyk\Downloads\travail2_partie1_fady\travail2_partie1_fady\RefugeAnimaux\obj\Debug\net8.0\ref\RefugeAnimaux.dll
+C:\Users\fadyk\Downloads\travail2_partie1_fady\travail2_partie1_fady\RefugeAnimaux\obj\Debug\net8.0\RefugeAnimaux.sourcelink.json
