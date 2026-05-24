@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fadyk\\Downloads\\travail2_partie1_fady\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj": {}
+    "C:\\Users\\fadyk\\OneDrive\\Bureau\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fadyk\\Downloads\\travail2_partie1_fady\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj": {
+    "C:\\Users\\fadyk\\OneDrive\\Bureau\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fadyk\\Downloads\\travail2_partie1_fady\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj",
+        "projectUniqueName": "C:\\Users\\fadyk\\OneDrive\\Bureau\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj",
         "projectName": "RefugeAnimaux",
-        "projectPath": "C:\\Users\\fadyk\\Downloads\\travail2_partie1_fady\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj",
+        "projectPath": "C:\\Users\\fadyk\\OneDrive\\Bureau\\travail2_partie1_fady\\RefugeAnimaux\\RefugeAnimaux.csproj",
         "packagesPath": "C:\\Users\\fadyk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fadyk\\Downloads\\travail2_partie1_fady\\travail2_partie1_fady\\RefugeAnimaux\\obj\\",
+        "outputPath": "C:\\Users\\fadyk\\OneDrive\\Bureau\\travail2_partie1_fady\\RefugeAnimaux\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fadyk\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -22,6 +22,14 @@ public class ConsoleApp
             Console.WriteLine("7. Ajouter une personne de contact");
             Console.WriteLine("8. Lister les contacts");
             Console.WriteLine("9. Supprimer un contact");
+            Console.WriteLine("10. Modifier les coordonnées d'un contact");
+            Console.WriteLine("11. Ajouter une famille d'accueil");
+            Console.WriteLine("12. Ajouter une adoption");
+            Console.WriteLine("13. Modifier le statut d'une adoption");
+            Console.WriteLine("14. Ajouter une compatibilité à un animal");
+            Console.WriteLine("15. Ajouter une sortie d'animal");
+            Console.WriteLine("16. Lister les familles d'accueil d'un animal");
+            
             Console.WriteLine("0. Quitter");
             Console.Write("Choix : ");
             var choix = Console.ReadLine();
@@ -39,6 +47,14 @@ public class ConsoleApp
                     case "7": AjouterContact(); break;
                     case "8": ListerContacts(); break;
                     case "9": SupprimerContact(); break;
+                    case "10": ModifierContact(); break;
+                    case "11": AjouterFamilleAccueil(); break;
+                    case "12": AjouterAdoption(); break;
+                    case "13": ModifierStatutAdoption(); break;
+                    case "14": AjouterCompatibilite(); break;
+                    case "15":AjouterSortie();break;
+                    case "16":ListerFamillesAccueilAnimal();break;
+
                     case "0": return;
                     default: Console.WriteLine("Choix invalide."); break;
                 }
@@ -80,11 +96,7 @@ public class ConsoleApp
         foreach (var animal in _animalRepo.ListerTous()) Console.WriteLine(animal);
     }
 
-    private void SupprimerAnimal()
-    {
-        _animalRepo.Supprimer(LireTexte("Identifiant : "));
-        Console.WriteLine("Suppression effectuée si l'animal existait.");
-    }
+    
 
     private void AjouterEntree()
     {
@@ -135,6 +147,99 @@ public class ConsoleApp
         Console.WriteLine("Suppression effectuée si le contact existait.");
     }
 
+    private void SupprimerAnimal()
+    {
+    string id = LireTexte("Identifiant : ");
+
+        _animalRepo.SupprimerAnimal(id);
+
+        Console.WriteLine("Animal supprimé.");
+    }
+
+    private void ModifierContact()
+    {
+        int id = LireInt("Identifiant du contact : ");
+        string adresse = LireTexte("Nouvelle adresse : ");
+        string gsm = LireTexte("Nouveau GSM : ");
+        string telephone = LireTexte("Nouveau téléphone : ");
+        string email = LireTexte("Nouvel email : ");
+
+        _contactRepo.ModifierContact(id, adresse, gsm, telephone, email);
+
+        Console.WriteLine("Contact modifié.");
+    }
+    private void AjouterFamilleAccueil()
+    {
+        string animalId = LireTexte("Identifiant de l'animal : ");
+        int contactId = LireInt("Identifiant du contact : ");
+        DateOnly dateArrivee = LireDate("Date d'arrivée (yyyy-mm-dd) : ");
+
+        _animalRepo.AjouterFamilleAccueil(animalId, contactId, dateArrivee);
+
+        Console.WriteLine("Famille d'accueil ajoutée.");
+    }
+    private void AjouterAdoption()
+    {
+        string animalId = LireTexte("Identifiant de l'animal : ");
+        int contactId = LireInt("Identifiant du contact : ");
+        DateOnly dateDemande = LireDate("Date de demande (yyyy-mm-dd) : ");
+
+        _animalRepo.AjouterAdoption(animalId, contactId, dateDemande);
+
+        Console.WriteLine("Adoption ajoutée.");
+    }
+    private void ModifierStatutAdoption()
+    {
+        int idAdoption = LireInt("Identifiant de l'adoption : ");
+
+        Console.WriteLine("Statuts possibles : demande, acceptee, rejet_environnement, rejet_comportement");
+        string statut = LireTexte("Nouveau statut : ");
+
+        _animalRepo.ModifierStatutAdoption(idAdoption, statut);
+
+        Console.WriteLine("Statut de l'adoption modifié.");
+    }
+  private void AjouterCompatibilite()
+    {
+        string animalId = LireTexte("Identifiant de l'animal : ");
+
+        Console.WriteLine("1 = chat");
+        Console.WriteLine("2 = chien");
+        Console.WriteLine("3 = jeune enfant");
+        Console.WriteLine("4 = enfant");
+        Console.WriteLine("5 = jardin");
+        Console.WriteLine("6 = poney");
+
+        int idCompatibilite = LireInt("Id compatibilité : ");
+
+        string valeur = LireTexte("Valeur (oui/non/non teste) : ");
+
+        _animalRepo.AjouterCompatibilite(animalId, idCompatibilite, valeur);
+
+        Console.WriteLine("Compatibilité ajoutée.");
+    }
+
+    private void AjouterSortie()
+    {
+        string animalId = LireTexte("Identifiant de l'animal : ");
+        int contactId = LireInt("Identifiant du contact : ");
+
+        Console.WriteLine("Raisons possibles : adoption, retour_proprietaire, deces_animal, famille_accueil");
+
+        string raison = LireTexte("Raison : ");
+
+        DateOnly dateSortie = LireDate("Date de sortie (yyyy-mm-dd) : ");
+
+        _animalRepo.AjouterSortie(animalId, contactId, raison, dateSortie);
+
+        Console.WriteLine("Sortie ajoutée.");
+    }
+    private void ListerFamillesAccueilAnimal()
+    {
+        string animalId = LireTexte("Identifiant de l'animal : ");
+
+        _animalRepo.ListerFamillesAccueilAnimal(animalId);
+    }
     private static string LireTexte(string message)
     {
         Console.Write(message);

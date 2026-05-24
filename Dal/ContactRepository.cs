@@ -69,6 +69,44 @@ public class ContactRepository
         cmd.ExecuteNonQuery();
     }
 
+    public void ModifierContact(int id, string adresse, string gsm, string telephone, string email)
+    {
+        using var cnx = Database.GetConnection();
+
+        string sql = @"
+            UPDATE contact
+            SET rue = @adresse,
+            gsm = @gsm,
+            telephone = @telephone,
+            email = @email
+            WHERE contact_identifiant = @id";
+        using var cmd = new NpgsqlCommand(sql, cnx);
+
+        cmd.Parameters.AddWithValue("id", id);
+        cmd.Parameters.AddWithValue("adresse", adresse);
+        cmd.Parameters.AddWithValue("gsm", gsm);
+        cmd.Parameters.AddWithValue("telephone", telephone);
+        cmd.Parameters.AddWithValue("email", email);
+
+        cmd.ExecuteNonQuery();
+    }
+    public void AjouterCompatibilite(string animalId, string type, string valeur)
+    {
+        using var cnx = Database.GetConnection();
+
+        string sql = @"
+            INSERT INTO compatibilite (ani_identifiant, type, valeur)
+            VALUES (@animalId, @type, @valeur)";
+
+        using var cmd = new NpgsqlCommand(sql, cnx);
+
+        cmd.Parameters.AddWithValue("animalId", animalId);
+        cmd.Parameters.AddWithValue("type", type);
+        cmd.Parameters.AddWithValue("valeur", valeur);
+
+        cmd.ExecuteNonQuery();
+    }
+
     private static Contact LireContact(NpgsqlDataReader r) => new()
     {
         Identifiant = r.GetInt32(r.GetOrdinal("contact_identifiant")),
